@@ -1,116 +1,156 @@
-html {
-    box-sizing: border-box;
-  }
-  
-  *, *::before, *::after {
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-   font-family:
-   -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans,
-    Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-   line-height: 1.4;
-  }
-  
-  .container {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    padding-left: 10px;
-    padding-right: 10px;
-    color: #333;
-    height: 90vh;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    overflow-y: auto;
-  }
-  
-  .app-title {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 80px;
-    opacity: 0.5;
-  }
-  
-  svg {
-    width: 64px;
-    height: 64px;
-  }
-  
-  .todo-list {
-    list-style: none;
-    margin-bottom: 20px;
-  }
-  
-  .todo-item {
-    margin-bottom: 10px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .todo-item span {
-    flex-grow: 1;
-    margin-left: 10px;
-    margin-right: 10px;
-    font-size: 22px;
-  }
-  
-  .done span {
-    text-decoration: line-through;
-  }
-  
-  input[type="checkbox"] {
-    display: none;
-  }
-  
-  .tick {
-    width: 30px;
-    height: 30px;
-    border: 3px solid #333;
-    border-radius: 50%;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .tick::before {
-    content: '✓';
-    font-size: 20px;
-    display: none;
-  }
-  
-  .done .tick::before {
-    display: inline;
-  }
-  
-  .delete-todo {
-    border: none;
-    background-color: transparent;
-    outline: none;
-    cursor: pointer;
-  }
-  
-  .delete-todo svg {
-    width: 30px;
-    height: 30px;
-    pointer-events: none;
-  }
-  
-  form {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    border-radius: 4px;
-    border: 3px solid #333;
-  }
+:root {
+	--dark: #374151;
+	--darker: #1F2937;
+	--darkest: #111827;
+	--grey: #6B7280;
+	--pink: #EC4899;
+	--purple: #8B5CF6;
+	--light: #EEE;
+}
+
+* {
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Fira sans", sans-serif;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	color: #FFF;
+	background-color: var(--dark);
+}
+
+.greeting {
+	padding: 2rem 1rem;
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.title{ 
+	font-size: 2.5rem;
+	font-weight: 300;
+	color: var(--grey);
+	margin-bottom: 1rem;
+}
+
+.create-todo {
+	display: flex;;
+}
+
+.create-todo input, button {
+	appearance: none;
+	border: none;
+	outline: none;
+	background: none;
+}
+
+#new-todo-form input {
+	flex: 1 1 0%;
+	background-color: var(--darker);
+	padding: 1rem;
+	border-radius: 1rem;
+	margin-right: 1rem;
+	color: var(--light);
+	font-size: 1.25rem;
+}
+
+#new-todo-form input::placeholder {
+	color: var(--grey);
+}
+
+#enter {
+	color: var(--pink);
+	font-size: 1.25rem;
+	font-weight: 700;
+	background-image: linear-gradient(to right, var(--pink), var(--purple));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	cursor: pointer;
+	transition: 0.4s;
+}
+
+#enter:hover {
+	opacity: 0.8;
+}
+
+#enter:active {
+	opacity: 0.6;
+}
+
+.app {
+	flex: 1 1 0%;
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#task-list {
+	padding: 1rem;
+}
+
+#task-list h2 {
+	font-size: 1.5rem;
+	font-weight: 300;
+	color: var(--grey);
+	margin-bottom: 1rem;
+}
+
+.list .task {
+	display: flex;
+	justify-content: space-between;
+	background-color: var(--darkest);
+	padding: 1rem;
+	border-radius: 1rem;
+	margin-bottom: 1rem;
+}
+
+.list .content {
+	flex: 1 1 0%;
+}
+
+.list .content .text {
+	color: var(--light);
+	font-size: 1.125rem;
+	width: 100%;
+	display: block;
+	transition: 0.4s;
+}
+
+.list .content .text:not(:read-only) {
+	color: var(--pink);
+}
+
+.task .actions {
+	display: flex;
+	margin: 0 -0.5rem;
+}
+
+.list .actions button {
+	cursor: pointer;
+	margin: 0 0.5rem;
+	font-size: 1.125rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	transition: 0.4s;
+}
+
+.list .actions button:hover {
+	opacity: 0.8;
+}
+
+.list .actions button:active {
+	opacity: 0.6;
+}
+
+.list .actions .edit {
+	background-image: linear-gradient(to right, var(--pink), var(--purple));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.list .actions .delete {
+	color: crimson;
+}
