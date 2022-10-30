@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H1>Reading Week 07</H1>
+    <ul>
+        <li> If a function doesn’t refer to an object as this in its body, it can still be called using the call() method, but you need provide null as its first argument. For example, we could call the square() function using the call() method, like so</li>
+        <li>function properties and methods is useful feature of this is that it provides result caching, or memoization.
+
+            If a function takes some time to compute a return value, we can save the result in a cache property. Then if the same argument is used again later, we can return the value from the cache, rather than having to compute the result again. For example, say squaring a number was an expensive computational operation that took a long time. We could rewrite the square() function so it saved each result in a cache object that is a property of the function:</li>
+            <li>An Immediately Invoked Function Expression – or IIFE – (pronounced 'iffy') is an anonymous function that, as the name suggests, is invoked as soon as it’s defined. This is easily achieved by placing parentheses at the end of the function definition (remember we use parentheses to invoke a function). The function also has to be made into an expression, which is done by placing the whole declaration inside parentheses, as in this example:</li>
+    <li>IIFEs are a useful way of performing a task while keeping any variables wrapped up within the scope of the function. This means the global namespace is not polluted with lots of variable names.</li>
+    <li>An IIFE can be used to enclose a block of code inside its own private scope so it doesn’t interfere with any other part of the program. Using IIFEs in this way means code can be added or removed separately. The example shows two blocks, A and B, that are able to run code independently of each other</li>
+    <li>Functions that Define and Rewrite Themselves
+        The dynamic nature of JavaScript means that a function is able to not only call itself, but define itself, and even redefine itself. This is done by assigning an anonymous function to a variable that has the same name as the function.</li>
+        <li>If any properties have previously been set on the function, these will be lost when the function redefines itself.  This is called the Lazy Definition Pattern and is often used when some initialization code is required the first time it’s invoked. This means the initialization can be done the first time it’s called, then the function can be redefined to what you want it to be for every subsequent invocation.</li>
+
+    </ul>
+</body>
+</html>
